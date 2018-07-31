@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+//Colors
+
+$black: #1D0444;
+
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl-1440: 1440px;
+
+
+//Responsive mixin
+
+@mixin respond-to($media) {
+    @if $media == sm {
+        @media only screen and (min-width: $sm){ @content; }
+    }
+    @if $media == md {
+        @media only screen and (min-width: $md){ @content; }
+    }
+    @if $media == lg {
+        @media only screen and (min-width: $lg){ @content; }
+    }
+    @if $media == xl {
+        @media only screen and (min-width: $xl){ @content; }
+    }
+    @if $media == xxl-1440 {
+        @media only screen and (min-width: $xxl-1440){ @content; }
+    }
+    @if $media == xxxl-1920 {
+        @media only screen and (min-width: $xxxl-1920){ @content; }
+    }
+    @if $media == xxxxl {
+        @media only screen and (min-width: $xxxxl){ @content; }
+    }
+}
+
+@mixin respond-to-height($media) {
+    @media only screen and (max-height: $media){ @content; }
+}
+
+
+// Vertical paddings and margins;
+
+@for $i from 1 through 30 {
+  .mt-#{$i} {
+    margin-top: #{$i/2}rem !important;
+	@include respond-to(md) {
+		margin-top: #{$i}rem !important;
+	}
+  }
+}
+
+@for $i from 1 through 30 {
+  .mb-#{$i} {
+    margin-bottom: #{$i/2}rem !important;
+	@include respond-to(md) {
+        margin-bottom: #{$i}rem !important;
+	}
+  }
+}
+
+@for $i from 1 through 30 {
+  .mr-#{$i} {
+	margin-right: #{$i}rem !important;
+  }
+}
+
+@for $i from 1 through 30 {
+  .ml-#{$i} {
+	margin-left: #{$i}rem !important;
+  }
+}
+
+@for $i from 1 through 30 {
+  .pt-#{$i} {
+	padding-top: #{$i}rem !important;
+  }
+}
+
+@for $i from 1 through 30 {
+  .pb-#{$i} {
+	padding-bottom: #{$i}rem !important;
+  }
+}
+
+
+//Main styles
+
+html, body {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 18px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $black;
+    // Baseline grid
+	//background-image: linear-gradient(rgba(255, 0, 0, 0.345) 1px, transparent 1px);
+	//background-size: auto 1em;
+    // ---
+    @include respond-to(md) {
+        font-size: 20px;
+    }
+    @include respond-to(lg) {
+        font-size: 24px;
+    }
+}
+
+a {
+    display: inline;
+    color: $black;
+    border-bottom: 2px solid $black;
+    &:hover {
+        color: $black;
+        opacity: 0.5;
+        text-decoration: none;
+    }
+    &.active {
+        pointer-events: none;
+        cursor: default;
+        opacity: 0.5;
+        border-bottom: none;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-muted {
+    opacity: 0.5;
+}
+
+.img__dru-block {
+    padding-right: 0;
+    @include respond-to(md) {
+        padding-right: 15px;    
+    }
+}
+
+.img__dru {
+    margin-top: 2rem;
+    @include respond-to(md) {
+        margin-top: -0.5rem;
+    }
+}
+
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    img {
+        max-width: 100%;
+    }
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.design-by {
+    text-align: left;
+    margin-top: 1rem;
+    @include respond-to(md) {
+        margin-top: 0;
+        text-align: right;
+    }
+}
+
+.footer {
+    margin-bottom: 4rem;
+    @include respond-to(md) {
+        margin-bottom: 4rem;
+    }
+}
+
+.homepage-link {
+    border-bottom: none;
+    svg {
+        margin-top: 7px;
+        width: 17px;
+        height: 17px;
+        @include respond-to(md) {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}

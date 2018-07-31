@@ -1,0 +1,9 @@
+/* TEAM */
+
+Name: Anastasia Druzhinina
+Role: Illustrator
+Site: https://druzhna.ru/
+
+Name: Sam Abdullaev
+Role: Web Designer & Developer
+Site: https://samabd.com/
